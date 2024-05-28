@@ -1,7 +1,7 @@
 import { View, StyleSheet } from "react-native";
-import AlignedLogin from "../components/AlignedLogin";
+import AlignedLogin from "../../components/AlignedLogin";
 import { Button, Text, TextInput } from "react-native-paper";
-import { width } from "../constants/measures";
+import { width } from "../../constants/measures";
 
 export default function Register() {
   return (
