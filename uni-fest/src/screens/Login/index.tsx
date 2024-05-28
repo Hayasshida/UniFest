@@ -14,6 +14,7 @@ export default function Login(props: Props) {
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
+  const [showPass, setShowPass] = useState(false)
 
   async function tryLogin(email: string, password: string) {
     const error = await signInWithEmail(email, password);
@@ -47,10 +48,10 @@ export default function Login(props: Props) {
           onChange={() => setLoginError(false)}
           value={password}
           onChangeText={setPassword}
-          secureTextEntry
+          secureTextEntry={!showPass}
           style={styles.generic}
-          label="Password"
-          right={loginError && <TextInput.Icon icon="alert" color="red" rippleColor="transparent"/>}
+          label="Senha"
+          right={(loginError ? <TextInput.Icon icon="alert" color="red" rippleColor="transparent"/> : <TextInput.Icon icon={showPass ? "eye-off" : "eye"} onPress={() => setShowPass(!showPass) }/>)}
           error={loginError}
         />
 
